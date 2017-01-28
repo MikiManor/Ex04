@@ -11,15 +11,21 @@ namespace Ex04
 
         void Show()
         {
-
+            int userSelection;
             bool v_Quit = true;
-            
+
             do
             {
                 Console.Clear();
-                try
-                {
-
+                try 
+                { 
+                    userSelection = int.Parse(Console.ReadLine());
+                    switch (userSelection)
+                    {
+                        case 0: Environment.Exit(0); break;
+                        default: 
+                            break;
+                    }
                 }
                 catch (Exception)
                 {
