@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    public interface MenusInterfaces
+    public interface ClassMenusInterfaces
     {
-        //func();
+        private List<string> m_menuItems;
+
+        void BuildMenuItem();
     }
 }

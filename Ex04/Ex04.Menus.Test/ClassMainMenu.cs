@@ -1,20 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Ex04.Menus.Interfaces;
+using Ex04.Menus.Delegates;
 
 namespace Ex04
 {
-    class MainMenu
+    class ClassMainMenu
     {
+        class MenuInterface : ClassMenusInterfaces
+        {
+            private readonly List<ClassMenusInterfaces> m_MenusInterfaces = new List<ClassMenusInterfaces>();
+
+            public void BuildMenuItem()
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         class MenuDelegate
         {
 
         }
 
-        class MenuInterface
-        {
-
-        }
 
         //void AddNewMenuItem();
         //void AddNewSubMenuItem();
