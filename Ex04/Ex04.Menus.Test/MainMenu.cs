@@ -6,6 +6,16 @@ namespace Ex04
 {
     class MainMenu
     {
+        class MenuDelegate
+        {
+
+        }
+
+        class MenuInterface
+        {
+
+        }
+
         //void AddNewMenuItem();
         //void AddNewSubMenuItem();
 

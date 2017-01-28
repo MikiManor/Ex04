@@ -8,6 +8,10 @@ namespace Ex04
     {
         static void Main ()
         {
+            //MenuWithInterfaces(); 2 level
+            //exit
+            //MenuWithDelegates(); 2 level
+            //exit
             Console.WriteLine("See Ya!");
             Console.ReadLine();
         }
