@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Ex04.Menus.Delegates
+{
+    public class ListOfMenus : Menu
+    {
+        private List<Menu> m_ListOfMenus = new List<Menu>();
+        //protected string m_backOrExitMsgToUser = "Back";
+
+        public ListOfMenus(string i_MenuOptionName)
+            : base(i_MenuOptionName)
+        {
+        }
+
+        internal override void DoMenuAction()
+        {
+			Console.Clear();
+            if (m_ListOfMenus != null)
+            {
+                int menuOptionIndex = 1; //Will be increased in the Do-While Loop
+                do
+                {
+                    Console.WriteLine("{0}\n", MenuOptionName);
+                    foreach (Menu currentMenuItem in m_ListOfMenus)
+                    {
+                        Console.WriteLine("{0}. {1}{2}", index++, currentMenuItem.MenuOptionName, Environment.NewLine); // prints the menu screen of the current hirerchy
+                    }
+
+                    Console.WriteLine("0. Return{1}", Environment.NewLine);
+                    Console.WriteLine("Please choose an option -> ");
+                }
+                while (!getUserSelection());
+
+                Console.Clear();
+            }
+            else
+            {
+                throw new WrongMenuItemSelection("Wrong option selected!");
+            }
+        }
+
+        private bool getUserSelection()
+        {
+            bool isInputValid = false;
+			bool isBackOrExit = false;
+            int userSelection;
+			
+            do
+            {
+                isInputValid = int.TryParse(Console.ReadLine(), out userSelection)
+				if (!isInputValid || userSelection < 0 || userSelection > m_ListOfMenus.Count);
+                {
+                    Console.WriteLine("Input not valid! Enter again!");
+					isInputValid = false;
+                }
+				else
+				{
+					isInputValid = true;
+				}
+            }
+            while (!isInputValid);
+
+            if (userChoice == 0)
+            {
+                isBackOrExit = true;
+            }
+            else
+            {
+                try
+                {
+                    m_ListOfMenus[userSelection - 1].DoMenuAction();
+                }
+                catch (WrongMenuItemSelection ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return isBackOrExit;
+        }
+
+
+        public void AddMenuItem(MenuItem i_MenuOptionToAdd)
+        {
+            m_ListOfMenus.Add(i_MenuOptionToAdd);
+        }
+    }
+}
