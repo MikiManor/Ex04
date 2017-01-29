@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Ex04.Menus.Delegates
+{
+    public abstract class Menu
+    {
+        private string m_MenuOptionName = string.Empty;
+
+        public Menu(string i_MenuOptionName)
+        {
+            m_MenuOptionName = i_MenuName;
+        }
+      
+        public string MenuOptionName
+        {
+            get { return m_MenuOptionName; }
+            set { m_MenuOptionName = value; }
+        }
+
+        internal abstract void DoMenuAction(); //should call SubMenu or execute the leaf   
+    }
+}
